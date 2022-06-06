@@ -39,7 +39,6 @@ public class ProductService {
     public void updateById(Long productId, ProductEntity productEntity){
         Optional<ProductEntity> product = productRepository.findById(productId);
         if(product.isPresent()){
-            product.get().getProductId();
             product.get().setProductName(productEntity.getProductName());
             product.get().setProductPrice(productEntity.getProductPrice());
             productRepository.save(product.get());
