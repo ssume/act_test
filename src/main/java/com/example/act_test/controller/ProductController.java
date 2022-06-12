@@ -28,19 +28,4 @@ public class ProductController {
         return new ResponseEntity<List<ProductEntity>>(product, HttpStatus.OK);
     }
 
-    @PostMapping(value="/add")
-    public ResponseEntity<ProductEntity> addProduct(@RequestBody ProductEntity productEntity){
-        return new ResponseEntity<ProductEntity>(productService.addProduct(productEntity), HttpStatus.OK);
-    }
-
-    @DeleteMapping(value="/delete")
-    public ResponseEntity<String> deleteProduct(@RequestParam Long productId){
-        return productService.deleteByProductId(productId) > 0 ? new ResponseEntity<String>("success", HttpStatus.OK) : new ResponseEntity<String>("fail", HttpStatus.OK);
-    }
-
-    @PutMapping(value="/update")
-    public ResponseEntity<ProductEntity> updateProduct(@RequestParam Long productId,@RequestBody ProductEntity productEntity) {
-        productService.updateById(productId, productEntity);
-        return new ResponseEntity<ProductEntity>(productEntity,HttpStatus.OK);
-    }
 }

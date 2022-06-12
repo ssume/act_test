@@ -41,6 +41,8 @@ public class ProductService {
         if(product.isPresent()){
             product.get().setProductName(productEntity.getProductName());
             product.get().setProductPrice(productEntity.getProductPrice());
+            product.get().setProductType(productEntity.getProductType());
+            product.get().setProductImg1(productEntity.getProductImg1());
             productRepository.save(product.get());
         }
     }
